@@ -1,0 +1,30 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+		<h2>Exibi Contato</h2>
+		<legend><h:outputText value="#{contatosBean.contato2.nome}" /></legend>
+		<div id="show">
+		<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="id" value="ID " />
+			<h:inputText value="#{contatosBean.contato2.id}" disabled="true" />
+			<h:outputLabel for="Nome" value="NOME " /> 
+			<h:inputText value="#{contatosBean.contato2.nome}" disabled="true" />
+			<h:outputLabel for="Email" value="EMAIL " />
+			<h:inputText value="#{contatosBean.contato2.email}" disabled="true" />
+			<h:outputLabel for="Fone" value="FONE " />
+			<h:inputText value="#{contatosBean.contato2.telefone}" disabled="true" />
+						
+		</h:panelGrid>
+		<div class="form-actions">
+		<h:commandButton id="back" class="btn btn-inverse" value="Voltar" action="lista" />
+		</div>
+		</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>

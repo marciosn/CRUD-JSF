@@ -1,0 +1,44 @@
+<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <h:link class="brand" value="Agenda" outcome="/index" />
+      <!-- <a class="brand" href="index.xhtml" outcome="index" >Agenda</a> -->
+      <div class="nav-collapse collapse">
+      	<ul class="nav">
+      		<li><h:link value="Inserir" outcome="/app/insere" /></li>
+      		<li><h:link value="Listar" outcome="/app/lista" /></li>
+      		
+    	</ul>
+			<ul class="nav">
+  				<li class="dropdown">
+    				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      				Opções
+      				<b class="caret"></b>
+    			</a>
+    			<ul class="dropdown-menu">
+    			<li><h:link value="Inserir Contatos" outcome="/app/insere" /></li>
+      			<li><h:link value="Listar Contatos" outcome="/app/lista" /></li>
+      			
+    			</ul>
+			  </li>
+			  <li><h:link value="Logout" outcome="/login" /></li>
+			</ul>
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+      </div>
+ 
+    </div>
+  </div>
+</div>
+</ui:composition>

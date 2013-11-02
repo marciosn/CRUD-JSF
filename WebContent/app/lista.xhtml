@@ -1,0 +1,87 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+
+		<h2>Lista de Contatos</h2>
+		<legend></legend>
+		
+		<h:panelGroup rendered="#{not empty facesContext.messageList}">
+	        <div class="alert alert-success">
+		        <button type="button" class="close" data-dismiss="alert">x</button>
+		        <h:messages styleClass="unstyled"  />
+       		</div>
+       		
+        </h:panelGroup>
+		<h:dataTable styleClass="table table-striped table-bordered table-hover" 
+			value="#{repositorio.contatos}" var="cont"
+			rendered="#{not empty repositorio.contatos}">
+			<!-- 
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="ID" class="label label-inverse" />
+				</f:facet>
+				<h:outputText value="#{cont.id}" />
+			</h:column>
+			 -->
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="NOME" class="label label-inverse"/>
+				</f:facet>
+				<h:outputText value="#{cont.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="EMAIL" class="label label-inverse"/>
+				</f:facet>
+				<h:outputText value="#{cont.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="TELEFONE" class="label label-inverse"/>
+				</f:facet>
+				<h:outputText value="#{cont.telefone}" />
+			</h:column>
+	
+			<h:column>
+				<h:form>
+				<div class="btn-group">
+								
+				<h:commandButton value="Editar" action="editar" styleClass="btn btn btn-small btn-inverse">
+				<f:setPropertyActionListener target="#{contatosBean.contato2.nome}" value="#{cont.nome}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.email}" value="#{cont.email}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.telefone}" value="#{cont.telefone}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.id}" value="#{cont.id}" />
+				</h:commandButton>
+				
+				<h:commandButton value="Ver" action="show" styleClass="btn btn btn-small btn-inverse">
+				<f:setPropertyActionListener target="#{contatosBean.contato2.nome}" value="#{cont.nome}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.email}" value="#{cont.email}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.telefone}" value="#{cont.telefone}" />
+				<f:setPropertyActionListener target="#{contatosBean.contato2.id}" value="#{cont.id}" />
+				<f:param name="id" value="#{cont.id}" />
+				</h:commandButton>
+
+				<h:commandButton value="Apagar" action="#{contatosBean.deletar2}" styleClass="btn btn btn-small btn-inverse"
+				onclick="return confirm ('CONFIRME PARA DELETAR O CONTATO?')">
+				<f:setPropertyActionListener target="#{contatosBean.contato2.id}" value="#{cont.id}" />
+				</h:commandButton>
+				
+				</div>
+				</h:form>
+			</h:column>
+
+		</h:dataTable>
+		<div class="form-actions">
+				<h:form>
+				<h:commandButton value="Novo Contato" action="/app/insere"
+				   styleClass="btn btn-inverse" />
+		</h:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

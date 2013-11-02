@@ -1,0 +1,37 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="conteudo">
+		<h2>Inserir Contato</h2>
+		<legend></legend>
+		<h:panelGroup rendered="#{facesContext.validationFailed}">
+			<div class="alert alert-info">
+  			<button type="button" class="close" data-dismiss="alert">
+  			<i class="icon-thumbs-up" >x</i>
+  			</button>
+  			<strong>Sinto Muito!!!</strong> O preenchimento dos campos é necessário ..
+  			
+		</div>
+		
+		</h:panelGroup>
+		<h:form>
+				
+		<h:panelGrid columns="2">
+			<h:outputLabel for="Nome" value="Nome" /> 
+			<h:inputText id="nome" label="nome" required="true" value="#{contatosBean.contato.nome}" />
+			<h:outputLabel for="Email" value="Email" />
+			<h:inputText id="email" label="email" required="true" value="#{contatosBean.contato.email}" />
+			<h:outputLabel for="Telefone" value="Telefone" />
+			<h:inputText id="telefone" label="telefone" required="true" maxlength="10" value="#{contatosBean.contato.telefone}" />
+		</h:panelGrid>
+		<div class="form-actions">
+			<h:commandButton id="Salvar" class="btn btn-inverse" value="Save" action="#{contatosBean.insere}" />
+		</div>
+		
+		</h:form>
+	</ui:define>
+
+</ui:composition>
